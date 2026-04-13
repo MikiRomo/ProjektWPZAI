@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# Plantagotchi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plantagotchi to aplikacja webowa do monitorowania podlewania roślin domowych.  
+Użytkownik może dodawać rośliny, określać interwał podlewania, przeglądać kalendarz i historię działań oraz oceniać kondycję roślin na podstawie wskaźnika zdrowia.
 
-Currently, two official plugins are available:
+## Główne funkcje aplikacji
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- dodawanie, edycja i usuwanie roślin,
+- zapisywanie ostatniego podlania i automatyczne wyliczanie kolejnych terminów,
+- widok zakładkowy: `Rośliny`, `Kalendarz`, `Historia`,
+- health score 0-100 z paskiem postępu i statusem (`healthy`, `warning`, `critical`),
+- upload zdjęcia rośliny (base64) z limitem rozmiaru 200KB,
+- powiadomienia przeglądarkowe o podlewaniu (Web Notifications API),
+- tryb jasny/ciemny z zapisem preferencji,
+- persystencja danych przez localStorage.
 
-## React Compiler
+## Instrukcja instalacji i uruchomienia
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Wymagania
 
-## Expanding the ESLint configuration
+- Node.js 20+,
+- npm 10+.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Instalacja
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Uruchomienie deweloperskie
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Domyślny adres: `http://localhost:5173/` (lub kolejny wolny port, np. `5174`).
+
+### Build produkcyjny
+
+```bash
+npm run build
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+### Testy jednostkowe
+
+```bash
+npm test
+```
+
+## Technologie
+
+- React 19
+- TypeScript
+- Vite
+- Vitest
+- Zod
+- ESLint
+- localStorage (przechowywanie stanu)
+- Web Notifications API
+
+## Status testów jednostkowych
+
+Aktualnie wszystkie testy przechodzą pomyślnie:
+- `7` plików testowych,
+- `38` testów,
+- status: **passed**.
+
+## Dokumentacja dodatkowa
+
+Szczegółowa specyfikacja projektu znajduje się w pliku `specyfikacja.md`.
+
+## Zakres wsparcia AI
+
+### Etapy wykonane samodzielnie
+
+- wykonanie większości funkcjonalności aplikacji,
+- przygotowanie głównego wyglądu i układu interfejsu,
+- decyzje dotyczące kierunku rozwoju i testowanie działania.
+
+### Etapy wykonane z pomocą AI
+
+- poprawa i ulepszenie istniejącego programu,
+- wsparcie w refaktoryzacji wybranych elementów kodu,
+- pomoc w dopracowaniu dokumentacji technicznej.
