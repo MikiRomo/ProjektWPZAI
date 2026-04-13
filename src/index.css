@@ -1,0 +1,64 @@
+:root {
+  --color-bg: #f2f6f3;
+  --color-card-bg: #ffffff;
+  --color-input-bg: #ffffff;
+  --color-text: #1d3124;
+  --color-accent: #2f7a44;
+  --color-border: #cdddcf;
+  --color-danger: #cf3f3f;
+  --color-warning: #d28a21;
+  --color-success: #2f7a44;
+}
+
+[data-theme="dark"] {
+  --color-bg: #111a14;
+  --color-card-bg: #18231c;
+  --color-input-bg: #0e1611;
+  --color-text: #e4f1e7;
+  --color-accent: #6cc18a;
+  --color-border: #2f4435;
+  --color-danger: #ff7a7a;
+  --color-warning: #f5c264;
+  --color-success: #6cc18a;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 200ms, color 200ms;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+.error-boundary {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  gap: 14px;
+  justify-items: center;
+  padding: 24px;
+}
+
+.error-boundary-icon {
+  color: #d97706;
+}
+
+.error-boundary button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #2f7a44;
+  color: #fff;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
